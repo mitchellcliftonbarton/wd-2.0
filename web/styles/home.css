@@ -1,0 +1,22 @@
+/*
+Home
+*/
+
+.page-home > section:not(:first-child) {
+  margin-top: 5rem;
+}
+
+.page-home .current-exhibitions .exhibition:not(:first-of-type) {
+  margin-top: theme('spacing.16');
+}
+
+
+/*
+Home (LG)
+*/
+
+@media (min-width: theme('screens.lg')) {
+  .page-home>section:not(:first-child) {
+    margin-top: 14rem;
+  }
+}

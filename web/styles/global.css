@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .fill-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .media-cover {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: 10px;
+  font-family: theme('fontFamily.primary');
+  height: 100%;
+}
+
+body {
+  font-size: theme('fontSize.base');
+  height: 100%;
+  line-height: 1.3;
+}
+
+.rich-text a {
+  text-decoration: underline;
+}
+
+.rich-text a:hover {
+  text-decoration: none;
+}
+
+.rich-text * + p {
+  margin-top: 1.5rem;
+}
+
+/*
+Def Image
+*/
+
+.def-image {
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.def-image.loaded {
+  opacity: 1;
+}

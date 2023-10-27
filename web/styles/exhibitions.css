@@ -1,0 +1,88 @@
+/*
+Exhibitions
+*/
+
+.page-exhibitions>section:not(:first-child) {
+  margin-top: 6rem;
+}
+
+/*
+Exhibitions on home page
+*/
+
+.exhibition-item-large .view {
+  opacity: 0;
+  pointer-events:none;
+}
+
+.exhibition-item-large:hover .titles > div {
+  background-color: theme('colors.grey-med');
+}
+
+.exhibition-item-large:hover .view {
+  opacity: 1;
+}
+
+
+/*
+Exhibition Item Block
+*/
+
+.exhibition-item-block .view {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.exhibition-item-block:hover .titles {
+  background-color: theme('colors.grey-med');
+}
+
+.exhibition-item-block:hover .view {
+  opacity: 1;
+}
+
+
+/*
+Exhibition Detail
+*/
+.page-exhibition-detail .titles h1 + div {
+  margin-top: theme('spacing.4');
+}
+
+.page-exhibition-detail .info-column .description + .artists {
+  margin-top: 4rem;
+}
+
+.page-exhibition-detail .info-content {
+  position: sticky;
+  top: 20px;
+}
+
+.page-exhibition-detail .artists .artist + .artist {
+  margin-top: 2rem;
+}
+
+.media-item + .media-item {
+  margin-top: 3rem;
+}
+
+.media-item button .view {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.media-item button:hover .view {
+  opacity: 1;
+}
+
+.carousel-large {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  z-index: 1000;
+}
+
+.carousel-large.active {
+  opacity: 1;
+  pointer-events: auto;
+}

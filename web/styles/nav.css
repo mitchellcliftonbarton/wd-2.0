@@ -1,0 +1,24 @@
+/*
+Nav
+*/
+
+.main-nav {
+  z-index: 500;
+}
+
+
+/*
+Mobile Menu
+*/
+
+.mobile-menu {
+  z-index: 400;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: transform .3s;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
