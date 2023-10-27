@@ -5,6 +5,7 @@ import 'swiper/css'
 
 import { useRef, useEffect, useState } from 'react'
 import { urlFor, getImageHeight } from '@/lib/sanity'
+import DefImage from '@/components/DefImage'
 
 const CarouselLarge = ({ files, className, setCarouselState, currentCarouselItem }) => {
   const swiperRef = useRef(null)
@@ -57,9 +58,11 @@ const CarouselLarge = ({ files, className, setCarouselState, currentCarouselItem
                 return (
                   <SwiperSlide key={index}>
                     <div className="w-full h-full flex justify-center items-center">
-                      <img
+                      <DefImage 
+                        src={urlFor(file.imageFile.asset.url).width(1500).quality(80).url()} 
+                        width={1500} 
+                        height={getImageHeight(1500, exhibition.featuredImage.asset.metadata.dimensions.aspectRatio)}
                         className="w-full h-full object-contain"
-                        src={urlFor(file.imageFile.asset.url).width(1500).quality(80).url()}
                         alt={file.imageFile.alt}
                       />
                     </div>

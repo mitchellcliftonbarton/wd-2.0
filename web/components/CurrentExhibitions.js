@@ -8,8 +8,8 @@ const CurrentExhibitions = ({ exhibitions }) => {
     <section className="current-exhibitions">
       <h2 className="italic mb-4 bg-primary inline-block">Current Exhibitions</h2>
 
-      {exhibitions.map((exhibition) => (
-        <div className="grid grid-cols-12 gap-4">
+      {exhibitions.map((exhibition, index) => (
+        <div className="grid grid-cols-12 gap-4" key={index}>
           <Link
             key={exhibition.slug.current}
             href={`/exhibitions/${exhibition.slug.current}`}
