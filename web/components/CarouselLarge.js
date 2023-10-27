@@ -61,7 +61,7 @@ const CarouselLarge = ({ files, className, setCarouselState, currentCarouselItem
                       <DefImage 
                         src={urlFor(file.imageFile.asset.url).width(1500).quality(80).url()} 
                         width={1500} 
-                        height={getImageHeight(1500, exhibition.featuredImage.asset.metadata.dimensions.aspectRatio)}
+                        height={getImageHeight(1500, file.imageFile.asset.metadata.dimensions.aspectRatio)}
                         className="w-full h-full object-contain"
                         alt={file.imageFile.alt}
                       />
