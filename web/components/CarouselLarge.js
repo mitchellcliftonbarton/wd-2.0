@@ -14,7 +14,6 @@ const CarouselLarge = ({ files, className, setCarouselState, currentCarouselItem
   // if current carousel item changes, slide to that item
   useEffect(() => {
     if (swiperRef.current) {
-      // console.log(currentCarouselItem)
       swiperRef.current.swiper.slideToLoop(currentCarouselItem, 0)
     }
   }, [currentCarouselItem])

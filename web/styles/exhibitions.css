@@ -15,12 +15,19 @@ Exhibitions on home page
   pointer-events:none;
 }
 
-.exhibition-item-large:hover .titles > div {
-  background-color: theme('colors.grey-med');
-}
 
-.exhibition-item-large:hover .view {
-  opacity: 1;
+/*
+Exhibitions on home page (LG)
+*/
+
+@media (min-width: theme('screens.lg')) {
+  .exhibition-item-large:hover .titles>div {
+    background-color: theme('colors.grey-med');
+  }
+
+  .exhibition-item-large:hover .view {
+    opacity: 1;
+  }
 }
 
 
@@ -33,12 +40,19 @@ Exhibition Item Block
   pointer-events: none;
 }
 
-.exhibition-item-block:hover .titles {
-  background-color: theme('colors.grey-med');
-}
 
-.exhibition-item-block:hover .view {
-  opacity: 1;
+/*
+Exhibition Item Block (LG)
+*/
+
+@media (min-width: theme('screens.lg')) {
+  .exhibition-item-block:hover .titles {
+    background-color: theme('colors.grey-med');
+  }
+
+  .exhibition-item-block:hover .view {
+    opacity: 1;
+  }
 }
 
 
@@ -71,10 +85,6 @@ Exhibition Detail
   pointer-events: none;
 }
 
-.media-item button:hover .view {
-  opacity: 1;
-}
-
 .carousel-large {
   opacity: 0;
   pointer-events: none;
@@ -85,4 +95,15 @@ Exhibition Detail
 .carousel-large.active {
   opacity: 1;
   pointer-events: auto;
+}
+
+
+/*
+Exhibition Detail (LG)
+*/
+
+@media (min-width: theme('screens.lg')) {
+  .media-item button:hover .view {
+    opacity: 1;
+  }
 }

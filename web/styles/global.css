@@ -39,12 +39,14 @@ body {
   text-decoration: underline;
 }
 
-.rich-text a:hover {
-  text-decoration: none;
-}
-
 .rich-text * + p {
   margin-top: 1.5rem;
+}
+
+@media (min-width: theme('screens.lg')) {
+  .rich-text a:hover {
+    text-decoration: none;
+  }
 }
 
 /*

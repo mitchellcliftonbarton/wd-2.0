@@ -18,7 +18,7 @@ const ExhibitionImages = ({ files, className, setCarouselState }) => {
                 onClick={() => setCarouselState(true, index)}
                 className="cursor-pointer col-span-9 lg:col-span-6 bg-grey-light relative"
               >
-                <p className='view absolute top-0 left-0 bg-grey-med'>&nbsp;+&nbsp;</p>
+                <p className='view absolute top-0 left-0 bg-grey-med'>&nbsp;+&nbsp;View in carousel&nbsp;</p>
 
                 <DefImage
                   className="w-full"
@@ -28,11 +28,18 @@ const ExhibitionImages = ({ files, className, setCarouselState }) => {
                 />
               </button>
 
-              {file.text && (
-                <div className="col-span-9 lg:col-span-3">
-                  <PortableText value={file.text} />
-                </div>
-              )}
+              <div className={`col-span-9 lg:col-span-3 flex items-start ${file.text ? 'justify-between' : 'justify-end'}`}>
+                {file.text && (
+                  <div>
+                    <PortableText value={file.text} />
+                  </div>
+                )}
+
+                <button
+                  onClick={() => setCarouselState(true, index)}
+                  className='lg:hidden bg-grey-light'
+                >+&nbsp;Expand</button>
+              </div>
             </div>
           )
         }

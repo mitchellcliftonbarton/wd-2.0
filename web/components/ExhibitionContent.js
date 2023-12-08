@@ -6,6 +6,17 @@ import ExhibitionImages from '@/components/ExhibitionImages'
 import CarouselLarge from '@/components/CarouselLarge'
 import { useState } from 'react'
 
+const components = {
+  marks: {
+    link: ({value, children}) => {
+      const { blank, href } = value
+      return blank ?
+        <a href={href} target="_blank" rel="noopener">{children}</a>
+        : <a href={href}>{children}</a>
+    }
+  }
+}
+
 const ExhibitionContent = ({ exhibition }) => {
   const {
     title,
@@ -30,7 +41,7 @@ const ExhibitionContent = ({ exhibition }) => {
     }
 
     // if index is true and we are opening the carousel
-    if (index && value) {
+    if (index !== false && value) {
       setCurrentCarouselItem(index)
     }
     
@@ -72,7 +83,7 @@ const ExhibitionContent = ({ exhibition }) => {
                   <h2 className="italic mb-4 bg-primary inline-block">Info</h2>
 
                   <div className="rich-text">
-                    <PortableText value={description} />
+                    <PortableText value={description} components={components} />
                   </div>
                 </div>
               )}
