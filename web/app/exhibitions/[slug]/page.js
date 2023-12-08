@@ -1,6 +1,5 @@
 import { sanityClient } from '@/lib/sanity'
 import ExhibitionContent from '@/components/ExhibitionContent'
-import { urlFor } from '@/lib/sanity'
 
 async function getData(slug) {
   const exhibition = await sanityClient.fetch(`*[_type == "exhibition" && slug.current == $slug][0]{
@@ -48,7 +47,7 @@ async function getData(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = params
 
-  const res = await sanityClient.fetch(`*[_type == "exhibition" && slug.current == $slug][0]{
+  const exhibition = await sanityClient.fetch(`*[_type == "exhibition" && slug.current == $slug][0]{
     title,
     ogImage{
       asset->{
@@ -60,11 +59,10 @@ export async function generateMetadata({ params }) {
     cache: 'no-store'
   })
 
-  const exhibitionData = res.result
-  const images = [exhibitionData.ogImage.asset.url]
+  const images = [exhibition.ogImage.asset.url]
  
   return {
-    title: `Washer / Dryer Projects | ${exhibitionData.title}`,
+    title: `Washer / Dryer Projects | ${exhibition.title}`,
     openGraph: {
       images
     }
