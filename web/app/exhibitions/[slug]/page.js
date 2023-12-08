@@ -37,7 +37,9 @@ async function getData(slug) {
       },
       youtubeId
     }
-  }`, { slug })
+  }`, { slug }, {
+    cache: 'no-store'
+  })
 
   return exhibition
 }
