@@ -2,6 +2,7 @@
 
 import DefImage from '@/components/DefImage'
 import { urlFor, getImageHeight } from '@/lib/sanity'
+import { PortableText } from '@portabletext/react'
 
 const ExhibitionImages = ({ files, className, setCarouselState }) => {
   return (
@@ -28,7 +29,9 @@ const ExhibitionImages = ({ files, className, setCarouselState }) => {
               </button>
 
               {file.text && (
-                <div className="col-span-9 lg:col-span-3">{file.text}</div>
+                <div className="col-span-9 lg:col-span-3">
+                  <PortableText value={file.text} />
+                </div>
               )}
             </div>
           )

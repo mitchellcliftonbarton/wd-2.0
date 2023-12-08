@@ -39,7 +39,7 @@ const CurrentExhibitions = ({ exhibitions }) => {
               </div>
             </div>
 
-            <div className='col-span-10 lg:col-span-8 relative'>
+            <div className='col-span-10 lg:col-span-7 relative'>
               <p className='view absolute top-0 left-0 bg-grey-med'>View exhibition ⇢&nbsp;</p>
               
               <DefImage 

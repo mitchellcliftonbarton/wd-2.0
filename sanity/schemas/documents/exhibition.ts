@@ -101,9 +101,10 @@ export default {
               name: 'imageFile'
             },
             {
-              type: 'text',
+              type: 'array',
               name: 'text',
-              title: 'Caption'
+              title: 'Caption',
+              of: [{type: 'block'}]
             },
           ]
         },
