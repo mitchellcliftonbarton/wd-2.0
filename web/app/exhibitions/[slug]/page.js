@@ -61,12 +61,12 @@ export async function generateMetadata({ params }) {
   })
 
   const exhibitionData = res.result
-  const image = urlFor(exhibitionData.ogImage.asset.url).width(1500).quality(80).url()
+  const images = [exhibitionData.ogImage.asset.url]
  
   return {
     title: `Washer / Dryer Projects | ${exhibitionData.title}`,
     openGraph: {
-      images: [image]
+      images
     }
   }
 }
