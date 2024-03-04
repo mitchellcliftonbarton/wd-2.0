@@ -12,14 +12,16 @@ const ExhibitionItemBlock = ({ exhibition }) => {
       <div className="relative aspect-[3/2]">
         <p className='view absolute z-10 top-0 left-0 bg-grey-med'>View exhibition ⇢&nbsp;</p>
 
-        <div className="fill-parent">
-          <DefImage 
-            src={urlFor(exhibition.featuredImage.asset.url).width(1500).quality(80).url()} 
-            width={1500} 
-            height={getImageHeight(1500, exhibition.featuredImage.asset.metadata.dimensions.aspectRatio)}
-            className="media-cover"
-          />
-        </div>
+        {exhibition.featuredImage && (
+          <div className="fill-parent">
+            <DefImage 
+              src={urlFor(exhibition.featuredImage.asset.url).width(1500).quality(80).url()} 
+              width={1500} 
+              height={getImageHeight(1500, exhibition.featuredImage.asset.metadata.dimensions.aspectRatio)}
+              className="media-cover"
+            />
+          </div>
+        )}
       </div>
       
       <div className="titles inline-block mt-4 max-w-[75%]">

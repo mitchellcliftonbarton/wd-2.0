@@ -33,8 +33,6 @@ export default async function Exhibitions() {
     return startDate > today
   })
 
-  console.log(upcomingExhibitions)
-
   if (upcomingExhibitions.length > 0) {
     return (
       <div className="page-exhibitions mt-16 pb-48">

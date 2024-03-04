@@ -34,6 +34,8 @@ export default async function Exhibitions() {
     return startDate > today
   })
 
+  console.log(upcomingExhibitions)
+
   const currentExhibitions = data.filter((exhibition) => {
     const today = new Date()
     const startDate = new Date(exhibition.start_date)
