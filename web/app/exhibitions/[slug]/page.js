@@ -2,12 +2,26 @@ import { sanityClient } from '@/lib/sanity'
 import ExhibitionContent from '@/components/ExhibitionContent'
 
 async function getData(slug) {
-  const exhibition = await sanityClient.fetch(`*[_type == "exhibition" && slug.current == $slug][0]{
+  const exhibition = await sanityClient.fetch(
+    `*[_type == "exhibition" && slug.current == $slug][0]{
     title,
     slug,
     start_date,
     end_date,
     description,
+    pdf{
+      asset->{
+        ...,
+        metadata
+      }
+    },
+    pdfCoverImage{
+      asset->{
+        ...,
+        metadata
+      }
+    },
+    pdfCaption,
     featuredImage{
       asset->{
         ...,
@@ -37,9 +51,12 @@ async function getData(slug) {
       },
       youtubeId
     }
-  }`, { slug }, {
-    cache: 'no-store'
-  })
+  }`,
+    { slug },
+    {
+      cache: 'no-store',
+    }
+  )
 
   return exhibition
 }
@@ -47,7 +64,8 @@ async function getData(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = params
 
-  const exhibition = await sanityClient.fetch(`*[_type == "exhibition" && slug.current == $slug][0]{
+  const exhibition = await sanityClient.fetch(
+    `*[_type == "exhibition" && slug.current == $slug][0]{
     title,
     ogImage{
       asset->{
@@ -55,17 +73,20 @@ export async function generateMetadata({ params }) {
         metadata
       }
     }
-  }`, { slug }, {
-    cache: 'no-store'
-  })
+  }`,
+    { slug },
+    {
+      cache: 'no-store',
+    }
+  )
 
   const images = [exhibition.ogImage.asset.url]
- 
+
   return {
     title: `Washer / Dryer Projects | ${exhibition.title}`,
     openGraph: {
-      images
-    }
+      images,
+    },
   }
 }
 
@@ -73,7 +94,5 @@ export default async function ExhibitionDetail({ params }) {
   const { slug } = params
   const data = await getData(slug)
 
-  return (
-    <ExhibitionContent exhibition={data} />
-  )
+  return <ExhibitionContent exhibition={data} />
 }

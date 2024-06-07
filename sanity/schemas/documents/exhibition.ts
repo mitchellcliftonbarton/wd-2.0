@@ -6,7 +6,7 @@ export default {
     {
       name: 'main',
       title: 'Info',
-      default: true
+      default: true,
     },
     {
       name: 'media',
@@ -27,14 +27,14 @@ export default {
       group: 'main',
     },
     {
-      title: "Slug",
-      name: "slug",
-      type: "slug",
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
       validation: (Rule: any) => Rule.required(),
       group: 'main',
       options: {
-        source: 'title'
-      }
+        source: 'title',
+      },
     },
     {
       name: 'displayTitle',
@@ -69,7 +69,7 @@ export default {
       title: 'Exhibition Description',
       description: 'The description for the exhibition',
       group: 'main',
-      of: [{type: 'block'}]
+      of: [{type: 'block'}],
     },
     {
       name: 'artists',
@@ -80,9 +80,56 @@ export default {
       of: [
         {
           type: 'reference',
-          to: { type: 'artist' }
-        }
-      ]
+          to: {type: 'artist'},
+        },
+      ],
+    },
+    {
+      name: 'pdf',
+      type: 'file',
+      title: 'PDF',
+      description: 'PDF for exhibition. Appears at top of page.',
+      group: 'media',
+    },
+    {
+      name: 'pdfCoverImage',
+      type: 'image',
+      title: 'PDF Cover Image',
+      description: 'Cover image for PDF',
+      group: 'media',
+    },
+    {
+      type: 'array',
+      name: 'pdfCaption',
+      title: 'PDF Caption',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'External link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL',
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean',
+                    default: true,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+      group: 'media',
     },
     {
       name: 'files',
@@ -98,15 +145,15 @@ export default {
           fields: [
             {
               type: 'image',
-              name: 'imageFile'
+              name: 'imageFile',
             },
             {
               type: 'array',
               name: 'text',
               title: 'Caption',
-              of: [{type: 'block'}]
+              of: [{type: 'block'}],
             },
-          ]
+          ],
         },
         {
           type: 'object',
@@ -115,18 +162,18 @@ export default {
           fields: [
             {
               type: 'file',
-              name: 'videoFile'
+              name: 'videoFile',
             },
             {
               type: 'image',
-              name: 'videoPoster'
+              name: 'videoPoster',
             },
             {
               type: 'text',
               name: 'text',
-              title: 'Caption'
+              title: 'Caption',
             },
-          ]
+          ],
         },
         {
           type: 'object',
@@ -139,16 +186,16 @@ export default {
             },
             {
               type: 'image',
-              name: 'videoPoster'
+              name: 'videoPoster',
             },
             {
               type: 'text',
               name: 'text',
-              title: 'Caption'
+              title: 'Caption',
             },
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
     {
       name: 'ogImage',
@@ -156,6 +203,6 @@ export default {
       title: 'Open Graph Image',
       description: 'The image that will appear when the site is shared on social media',
       group: 'seo',
-    }
-  ]
+    },
+  ],
 }

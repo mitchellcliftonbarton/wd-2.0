@@ -2,7 +2,7 @@
 Exhibitions
 */
 
-.page-exhibitions>section:not(:first-child) {
+.page-exhibitions > section:not(:first-child) {
   margin-top: 6rem;
 }
 
@@ -12,16 +12,15 @@ Exhibitions on home page
 
 .exhibition-item-large .view {
   opacity: 0;
-  pointer-events:none;
+  pointer-events: none;
 }
-
 
 /*
 Exhibitions on home page (LG)
 */
 
 @media (min-width: theme('screens.lg')) {
-  .exhibition-item-large:hover .titles>div {
+  .exhibition-item-large:hover .titles > div {
     background-color: theme('colors.grey-med');
   }
 
@@ -29,7 +28,6 @@ Exhibitions on home page (LG)
     opacity: 1;
   }
 }
-
 
 /*
 Exhibition Item Block
@@ -39,7 +37,6 @@ Exhibition Item Block
   opacity: 0;
   pointer-events: none;
 }
-
 
 /*
 Exhibition Item Block (LG)
@@ -54,7 +51,6 @@ Exhibition Item Block (LG)
     opacity: 1;
   }
 }
-
 
 /*
 Exhibition Detail
@@ -80,7 +76,8 @@ Exhibition Detail
   margin-top: 3rem;
 }
 
-.media-item button .view {
+.media-item button .view,
+.media-item a .view {
   opacity: 0;
   pointer-events: none;
 }
@@ -88,7 +85,7 @@ Exhibition Detail
 .carousel-large {
   opacity: 0;
   pointer-events: none;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   z-index: 1000;
 }
 
@@ -97,13 +94,13 @@ Exhibition Detail
   pointer-events: auto;
 }
 
-
 /*
 Exhibition Detail (LG)
 */
 
 @media (min-width: theme('screens.lg')) {
-  .media-item button:hover .view {
+  .media-item button:hover .view,
+  .media-item a:hover .view {
     opacity: 1;
   }
 }

@@ -1,8 +1,4 @@
-import Link from "next/link"
-
-async function getHomeData() {
-  return 'hello'
-}
+import Link from 'next/link'
 
 export default async function NotFound() {
   return (
@@ -12,7 +8,9 @@ export default async function NotFound() {
       <Link
         href="/"
         className="mt-6 underline lg:hover:no-underline"
-      >Go home</Link>
+      >
+        Go home
+      </Link>
     </div>
   )
 }

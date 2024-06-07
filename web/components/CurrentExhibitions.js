@@ -9,7 +9,10 @@ const CurrentExhibitions = ({ exhibitions }) => {
       <h2 className="italic mb-4 bg-primary inline-block">Current Exhibitions</h2>
 
       {exhibitions.map((exhibition, index) => (
-        <div className="grid grid-cols-12 gap-4" key={index}>
+        <div
+          className="grid grid-cols-12 gap-4"
+          key={index}
+        >
           <Link
             key={exhibition.slug.current}
             href={`/exhibitions/${exhibition.slug.current}`}
@@ -33,20 +36,26 @@ const CurrentExhibitions = ({ exhibitions }) => {
 
                 {exhibition.start_date && exhibition.end_date && (
                   <div>
-                    {format(new Date(exhibition.start_date), 'MM.dd.yyyy')} - {format(new Date(exhibition.end_date), 'MM.dd.yyyy')}
+                    {format(new Date(exhibition.start_date), 'MM.dd.yyyy')} -{' '}
+                    {format(new Date(exhibition.end_date), 'MM.dd.yyyy')}
                   </div>
                 )}
               </div>
             </div>
 
-            <div className='col-span-10 lg:col-span-7 relative'>
-              <p className='view absolute top-0 left-0 bg-grey-med'>View exhibition ⇢&nbsp;</p>
-              
-              <DefImage 
-                src={urlFor(exhibition.featuredImage.asset.url).width(1500).quality(80).url()} 
-                width={1500} 
-                height={getImageHeight(1500, exhibition.featuredImage.asset.metadata.dimensions.aspectRatio)}
-              />
+            <div className="col-span-10 lg:col-span-7 relative aspect-[3/2]">
+              <figure className="fill-parent">
+                <p className="view absolute top-0 left-0 bg-grey-med">View exhibition ⇢&nbsp;</p>
+
+                {exhibition?.featuredImage?.asset?.url && (
+                  <DefImage
+                    src={urlFor(exhibition.featuredImage.asset.url).width(1500).quality(80).url()}
+                    width={1500}
+                    height={getImageHeight(1500, exhibition.featuredImage.asset.metadata.dimensions.aspectRatio)}
+                    className="media-cover"
+                  />
+                )}
+              </figure>
             </div>
           </Link>
         </div>
